@@ -17,7 +17,7 @@ const _dirname = path.resolve();
 
 // middleware 
 if(process.env.NODE_ENV !== "development"){
-
+    console.log("process.env.NODE_ENV",process.env.NODE_ENV);
 app.use(
     cors({
     origin:"http://localhost:5173",

@@ -1,8 +1,8 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
 import NoteDetailPage from './pages/NoteDetailPage'
-
+import NotFoundPage from './pages/NotFoundPage'
 const App = () => {
   return (
     <div className='relative h-full w-full'>
@@ -11,6 +11,8 @@ const App = () => {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/create' element={<CreatePage/>}/>
         <Route path='/note/:id' element={<NoteDetailPage/>}/>
+         {/* 👇 Catch-all route */}
+        <Route path='*' element={<NotFoundPage/>} />
       </Routes>
     </div>
   )

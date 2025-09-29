@@ -23,7 +23,7 @@ app.use(
 })
 );
 }
-app.use(express.json()); // this middleware will parse json bodies: req.body
+app.use(express.json()); // this middleware will parse json bodies:req.body
 app.use(rateLimiter);
 
 

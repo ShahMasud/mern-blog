@@ -41,7 +41,7 @@ app.use("/api/notes", notesRoutes);
 //     });
 // }
 
-// Serve frontend in production
+// Serve frontend in producti
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(_dirname, "../frontend/dist")));

@@ -34,22 +34,22 @@ app.use(rateLimiter);
 // })
 app.use("/api/notes", notesRoutes);
 
-if(process.env.NODE_ENV==="development"){
-    app.use(express.static(path.join(_dirname, "../frontend/dist")));
-    app.get("*", (req, res)=>{
-        res.sendFile(path.join(_dirname, "../frontend", "dist", "index.html"));
-    });
-}
+// if(process.env.NODE_ENV==="development"){
+//     app.use(express.static(path.join(_dirname, "../frontend/dist")));
+//     app.get("*", (req, res)=>{
+//         res.sendFile(path.join(_dirname, "../frontend", "dist", "index.html"));
+//     });
+// }
 
 // Serve frontend in production
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(_dirname, "../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(_dirname, "../frontend/dist")));
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(_dirname, "../frontend", "dist", "index.html"));
-//   });
-// }
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(_dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 
 connectDB().then(()=>{
